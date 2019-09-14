@@ -163,7 +163,6 @@ function template_main()
 						<a href="', $scripturl, '?action=moderate;area=postmod;sa=', ($board['unapproved_topics'] > 0 ? 'topics' : 'posts'), ';brd=', $board['id'], ';', $context['session_var'], '=', $context['session_id'], '" title="', sprintf($txt['unapproved_posts'], $board['unapproved_topics'], $board['unapproved_posts']), '" class="moderation_link">(!)</a>';
 
 				echo '
-
 						<p>', $board['description'] , '</p>';
 						
 				// Show the "Child Boards: ". (there's a link_children but we're going to bold the new ones...)
@@ -266,8 +265,11 @@ function template_main()
 		</ul>
 	</div>';
 	}
-	echo'<br class="clear" />';
-	 template_info_center();
+
+	echo'
+	<br class="clear" />';
+
+	template_info_center();
 
 }
 function template_info_center()

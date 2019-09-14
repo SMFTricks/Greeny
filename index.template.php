@@ -188,163 +188,163 @@ function template_html_above()
 function template_body_above()
 {
 	global $context, $settings, $options, $scripturl, $txt, $modSettings;
-		echo'
+
+		echo '
     <div id="intro" class="intro-section">
 		<header class="head-er" id="top">
-				<div class="top-header-b">
+			<div class="top-header-b">
 				<a class="logow pull-left" href="', $scripturl, '">
 					', empty($context['header_logo_url_html_safe']) ? '<img  src="' . $settings['images_url'] . '/logo.png" alt="' . $context['forum_name'] . '" />' : '<img class="logo" src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name'] . '" />', '
 				</a>
-					<ul class="btn-nav btn-group pull-right">
-						 <li><a href="#forum" class="btn btn-white-lg page-scroll"><i class="fa fa-home fa-fw"></i><span class="hidden-xs">',$txt['forum'],'</span></a></li>'; 
-					if(!empty($context['user']['is_logged']))
-					{
-						echo'
-						<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '" class="btn btn-green-crt"><i class="fa fa-logout fa-fw"></i><span class="hidden-xs">', $txt['logout'], '</span></a></li>';
-					}
-					else
-					{
-						echo'
-						<li><a href="', $scripturl, '?action=login#forum" class="btn btn-green-crt"><i class="fa fa-login fa-fw"></i><span class="hidden-xs">',$txt['login'],'</span></a></li>';
-					}
-					echo'
-					</ul>
-				</div>
-					<div class="container">
-						<div class="profile-area">
-							<div class="profile-image">
-								<img class="profile-pic" src="', !empty($context['user']['avatar']['href']) ? $context['user']['avatar']['href'] : $settings['images_url']. '/theme/noavatar.png' ,'" alt="', $context['user']['name'],'" />
-							</div>
-							<div class="profile-menu va">
+				<ul class="btn-nav btn-group pull-right">
+					<li><a href="#forum" class="btn btn-white-lg page-scroll"><i class="fa fa-home fa-fw"></i><span class="hidden-xs">',$txt['forum'],'</span></a></li>'; 
 
-								<ul class="menu val">
-									<li class="dropdown">
-										  <a class="btn btn-green-crt" data-toggle="dropdown" href="#">', $context['user']['name'], '
-										  <span class="caret"></span></a>
-											<ul class="dropdown-menu" role="menu">';
-										  if(!empty($context['user']['is_logged']))
-										  {
-												echo'
-												<li><a href="', $scripturl, '?action=profile#forum"><i class="fa fa-user"></i> ', $txt['profile'], '</a></li>
-												<li><a href="', $scripturl, '?action=profile;area=forumprofile#forum"><i class="fa fa-edit"></i> ', $txt['forumprofile'], '</a></li>
-												<li><a href="', $scripturl, '?action=profile;area=account#forum"><i class="fa fa-cog"></i> ', $txt['account'], '</a></li>
-												<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '"><i class="fa fa-logout"></i> ', $txt['logout'], '</a></li>';
-											
-										}
-										else
-										{
-											echo'
-												<li><a href="', $scripturl, '?action=login#forum"><i class="fa fa-login fa-fw"></i> ',$txt['login'],'</a></li>
-												<li><a href="',$scripturl,'?action=register#forum"><i class="fa fa-register fa-fw"></i> ',$txt['register'],'</a></li>';
-										}
-										echo'
-											</ul>
-										</li>';
-										 if(!empty($context['user']['is_logged']))
-										 {
-											echo'
-											<li class="text"><a href="', $scripturl, '?action=unread#forum">', $txt['unread_since_visit'], '</a></li>
-											<li class="text"><a href="', $scripturl, '?action=unreadreplies#forum">', $txt['show_unread_replies'], '</a></li>';
-										}
-										else
-										{
-											echo'
-											<li class="welcome">', sprintf($txt['welcome_guest'], $txt['guest_title']), '</li>';
-										}
-									echo'
-								</ul>
-							</div>
-						</div>
-					</div>				
-		</header>
-    </div>
+			if(!empty($context['user']['is_logged']))
+				echo'
+					<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '" class="btn btn-green-crt"><i class="fa fa-logout fa-fw"></i><span class="hidden-xs">', $txt['logout'], '</span></a></li>';
+			else
+				echo'
+					<li><a href="', $scripturl, '?action=login#forum" class="btn btn-green-crt"><i class="fa fa-login fa-fw"></i><span class="hidden-xs">',$txt['login'],'</span></a></li>';
 
-    <div id="forum" class="forum-section">	
-	<nav class="navbar navbar-default">
-		<div class="container">	
-		<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				</button>
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-user">
-				  <i class="fa fa-profile"></i>
-				</button>
-				<a class="logow nav pull-left" href="', $scripturl, '">
-					', empty($context['header_logo_url_html_safe']) ? '<img  src="' . $settings['images_url'] . '/logo.png" alt="' . $context['forum_name'] . '" />' : '<img class="logo" src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name'] . '" />', '
-				</a>
-			</div>
-			  
-
-			<div class="pull-right menu">
-			<div class="navbar-collapse collapse" id="menu">';
-				// Show the menu here, according to the menu sub template.
-				template_menu();
 			echo'
-				</div>';
-		if(!empty($context['user']['is_logged']))
-		{
-		echo'
-				<div class="navbar-collapse-user collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="', $scripturl, '?action=profile"><i class="fa fa-user"></i> ', $txt['profile'], '</a></li>
-						<li><a href="', $scripturl, '?action=profile;area=forumprofile"><i class="fa fa-edit"></i> ', $txt['forumprofile'], '</a></li>
-						<li><a href="', $scripturl, '?action=profile;area=account"><i class="fa fa-cog"></i> ', $txt['account'], '</a></li>
-						<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '"><i class="fa fa-logout"></i> ', $txt['logout'], '</a></li>
-					</ul>
-				</div>';
-		}
-		else
-		{
-		echo'
-				<div class="navbar-collapse-user collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="', $scripturl, '?action=login"><i class="fa fa-login"></i> ', $txt['login'], '</a></li>
-						<li><a href="', $scripturl, '?action=register"><i class="fa fa-register"></i> ', $txt['register'], '</a></li>
-					</ul>
-				</div>';
-		}
-		echo'
+				</ul>
 			</div>
-					
-					
-		</div>
-	</nav>
-	<div class="wh-bar-u">
-		<div class="container">
-				<div class="pull-left">
-				<form id="custom-search-form" action="', $scripturl, '?action=search2#forum" method="post" accept-charset="', $context['character_set'], '" class="form-search form-horizontal pull-right">
-						<input type="text" class="search-query" name="search" placeholder="Search">
-						<button type="submit" name="submit" class="btn"><i class="fa fa-search"></i></button>
-				</form>
-			</div>
-				 <div class="dropdown pull-right dr-menu">
-					  <a class="dr-wh-baru" data-toggle="dropdown" href="#">', $context['user']['name'], '
-					  <span class="caret"></span></a>
-					  <ul class="dropdown-menu" role="menu">  ';
+			<div class="container">
+				<div class="profile-area">
+					<div class="profile-image">
+						<img class="profile-pic" src="', !empty($context['user']['avatar']['href']) ? $context['user']['avatar']['href'] : $settings['images_url']. '/theme/noavatar.png' ,'" alt="', $context['user']['name'],'" />
+					</div>
+					<div class="profile-menu va">
+						<ul class="menu val">
+							<li class="dropdown">
+								<a class="btn btn-green-crt" data-toggle="dropdown" href="#">
+									', $context['user']['name'], '
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu">';
+
 							if(!empty($context['user']['is_logged']))
 							{
 								echo'
-									<li><a href="', $scripturl, '?action=profile"><i class="fa fa-user"></i> ', $txt['profile'], '</a></li>
-									<li><a href="', $scripturl, '?action=profile;area=forumprofile"><i class="fa fa-edit"></i> ', $txt['forumprofile'], '</a></li>
-									<li><a href="', $scripturl, '?action=profile;area=account"><i class="fa fa-cog"></i> ', $txt['account'], '</a></li>
-									<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '"><i class="fa fa-logout"></i> ', $txt['logout'], '</a></li>';
-										
+									<li><a href="', $scripturl, '?action=profile#forum"><i class="fa fa-user"></i> ', $txt['profile'], '</a></li>
+									<li><a href="', $scripturl, '?action=profile;area=forumprofile#forum"><i class="fa fa-edit"></i> ', $txt['forumprofile'], '</a></li>
+									<li><a href="', $scripturl, '?action=profile;area=account#forum"><i class="fa fa-cog"></i> ', $txt['account'], '</a></li>
+									<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '"><i class="fa fa-logout"></i> ', $txt['logout'], '</a></li>';	
 							}
 							else
 							{
 								echo'
 									<li><a href="', $scripturl, '?action=login#forum"><i class="fa fa-login fa-fw"></i> ',$txt['login'],'</a></li>
-									<li><a href="',$scripturl,'?action=register"><i class="fa fa-register fa-fw"></i> ',$txt['register'],'</a></li>';
+									<li><a href="',$scripturl,'?action=register#forum"><i class="fa fa-register fa-fw"></i> ',$txt['register'],'</a></li>';
 							}
-									
+							echo'
+								</ul>
+							</li>';
+
+					if(!empty($context['user']['is_logged']))
+					{
 						echo'
-					  </ul>
+							<li class="text"><a href="', $scripturl, '?action=unread#forum">', $txt['unread_since_visit'], '</a></li>
+							<li class="text"><a href="', $scripturl, '?action=unreadreplies#forum">', $txt['show_unread_replies'], '</a></li>';
+					}
+					else
+						echo'
+							<li class="welcome">', sprintf($txt['welcome_guest'], $txt['guest_title']), '</li>';
+
+					echo'
+						</ul>
 					</div>
+				</div>
+			</div>				
+		</header>
+    </div>
+
+    <div id="forum" class="forum-section">	
+		<nav class="navbar navbar-default">
+			<div class="container">	
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-user">
+						<i class="fa fa-profile"></i>
+					</button>
+					<a class="logow nav pull-left" href="', $scripturl, '">
+						', empty($context['header_logo_url_html_safe']) ? '<img  src="' . $settings['images_url'] . '/logo.png" alt="' . $context['forum_name'] . '" />' : '<img class="logo" src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name'] . '" />', '
+					</a>
+				</div>
+				<div class="pull-right menu">
+					<div class="navbar-collapse collapse" id="menu">';
+
+						// Show the menu here, according to the menu sub template.
+						template_menu();
+
+				echo'
+					</div>';
+
+		if(!empty($context['user']['is_logged']))
+		{
+			echo'
+					<div class="navbar-collapse-user collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="', $scripturl, '?action=profile"><i class="fa fa-user"></i> ', $txt['profile'], '</a></li>
+							<li><a href="', $scripturl, '?action=profile;area=forumprofile"><i class="fa fa-edit"></i> ', $txt['forumprofile'], '</a></li>
+							<li><a href="', $scripturl, '?action=profile;area=account"><i class="fa fa-cog"></i> ', $txt['account'], '</a></li>
+							<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '"><i class="fa fa-logout"></i> ', $txt['logout'], '</a></li>
+						</ul>
+					</div>';
+		}
+		else
+		{
+		echo'
+					<div class="navbar-collapse-user collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="', $scripturl, '?action=login"><i class="fa fa-login"></i> ', $txt['login'], '</a></li>
+							<li><a href="', $scripturl, '?action=register"><i class="fa fa-register"></i> ', $txt['register'], '</a></li>
+						</ul>
+					</div>';
+		}
+		echo'
+				</div>	
+			</div>
+		</nav>
+		<div class="wh-bar-u">
+			<div class="container">
+				<div class="pull-left">
+					<form id="custom-search-form" action="', $scripturl, '?action=search2#forum" method="post" accept-charset="', $context['character_set'], '" class="form-search form-horizontal pull-right">
+						<input type="text" class="search-query" name="search" placeholder="Search">
+						<button type="submit" name="submit" class="btn"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+				<div class="dropdown pull-right dr-menu">
+					<a class="dr-wh-baru" data-toggle="dropdown" href="#">
+						', $context['user']['name'], '
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">';
+
+			if (!empty($context['user']['is_logged']))
+			{
+				echo'
+						<li><a href="', $scripturl, '?action=profile"><i class="fa fa-user"></i> ', $txt['profile'], '</a></li>
+						<li><a href="', $scripturl, '?action=profile;area=forumprofile"><i class="fa fa-edit"></i> ', $txt['forumprofile'], '</a></li>
+						<li><a href="', $scripturl, '?action=profile;area=account"><i class="fa fa-cog"></i> ', $txt['account'], '</a></li>
+						<li><a href="', $scripturl, '?action=logout;sesc=', $context['session_id'], '"><i class="fa fa-logout"></i> ', $txt['logout'], '</a></li>';
+			}
+			else
+			{
+				echo'
+						<li><a href="', $scripturl, '?action=login#forum"><i class="fa fa-login fa-fw"></i> ',$txt['login'],'</a></li>
+						<li><a href="',$scripturl,'?action=register"><i class="fa fa-register fa-fw"></i> ',$txt['register'],'</a></li>';
+			}		
+		echo'
+					</ul>
+				</div>
+			</div>
 		</div>
-	</div>
-<div class="container">';
+		<div class="container">';
 
 	// Custom banners and shoutboxes should be placed here, before the linktree.
 
@@ -358,36 +358,34 @@ function template_body_below()
 
 	// Show the "Powered by" and "Valid" logos, as well as the copyright. Remember, the copyright must be somewhere!
 	echo '
-	<div id="footer_section">
-	<div class="frame">
-	<div class="row">
-	<div class="col-md-9">
-
-		<ul class="reset">
-			<li class="copyright">', theme_copyright(), '</li>
-			<li><a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a></li>
-			', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '<li><a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a></li>' : '', '
-			<li class="last"><a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
-
-		</ul>
-		</div>
-		<div class="col-md-3">
-
-		<ul class="reset2">
-			',copyright(),'
-		</ul>
-		</div>
-		</div>';
+			<div id="footer_section">
+				<div class="frame">
+					<div class="row">
+						<div class="col-md-9">
+							<ul class="reset">
+								<li class="copyright">', theme_copyright(), '</li>
+								<li><a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a></li>
+								', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '<li><a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a></li>' : '', '
+								<li class="last"><a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<ul class="reset2">
+								',copyright(),'
+							</ul>
+						</div>
+					</div>';
 
 	// Show the load time?
 	if ($context['show_load_time'])
 		echo '
-		<p>', $txt['page_created'], $context['load_time'], $txt['seconds_with'], $context['load_queries'], $txt['queries'], '</p>';
+					<p>', $txt['page_created'], $context['load_time'], $txt['seconds_with'], $context['load_queries'], $txt['queries'], '</p>';
 
 	echo '
-	</div></div>', !empty($settings['forum_width']) ? '
-</div>
-    </div>' : '';
+				</div>
+			</div>
+		</div>
+	</div>';
 }
 
 function template_html_below()
@@ -469,11 +467,7 @@ function template_menu()
 // COPYRIGHT NO REMOVE!
 function copyright()
 {
-	{
-		$copy = '<li class="copyright2" style="display: block;">Theme by <a href="http://smftricks.com/" title="SMFTricks">SMFTricks</a></li>
-						<li class="copyright2">Designed by <a href="http://smftricks.com/index.php?action=profile;u=3458" title="SMFTricks">Raphisio</a></li>';
-	}
-	
+	$copy = '<li class="copyright2" style="display: block;">Theme by <a href="https://smftricks.com" title="SMFTricks">SMF Tricks</a></li>';
 	return $copy;
 }
 // Generate a strip of buttons.

@@ -443,7 +443,16 @@ function template_menu()
 		if (!empty($button['sub_buttons']))
 		{
 			echo '
-					<ul class="dropdown-menu" role="menu">';
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a href="', $button['href'], '"', isset($button['target']) ? ' target="' . $button['target'] . '"' : '', '>', $button['title'], '</a>
+						</li>';
+					
+			if ($act == 'admin')
+					echo '
+						<li>
+							<a href="', $scripturl, '?action=admin;area=theme;sa=settings;th=', $settings['theme_id'], '">', $txt['current_theme'], '</a>
+						</li>';
 
 			foreach ($button['sub_buttons'] as $childbutton)
 			{

@@ -24,4 +24,4 @@
 * You can install Greeny under Themes and Layout in your forum administration.
 
 ## Demo Online
-You can find a demo for this theme on SMF Tricks: [Demo](http://demo.smftricks.com/index.php?theme=82)
+You can find a demo for this theme on SMF Tricks: [Demo](http://demo.smftricks.com/index.php?theme=64)

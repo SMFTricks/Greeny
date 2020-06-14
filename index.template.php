@@ -432,10 +432,10 @@ function template_menu()
 	foreach ($context['menu_buttons'] as $act => $button)
 	{
 		echo '
-				<li id="button_', $act, '" class="', $button['sub_buttons'] ? 'dropdown ' : '', '', $button['active_button'] ? 'active ' : '', '">
-					<a ', $button['sub_buttons'] ? 'class="dropdown-toggle" ' : '', 'href="', $button['sub_buttons'] ? '#' : $button['href'] . '#forum', '"', isset($button['target']) ? ' target="' . $button['target'] . '"' : '', '', $button['sub_buttons'] ? ' data-toggle="dropdown"' : '', '>
+				<li id="button_', $act, '" class="', !empty($button['sub_buttons']) ? 'dropdown ' : '', '', $button['active_button'] ? 'active ' : '', '">
+					<a ', !empty($button['sub_buttons']) ? 'class="dropdown-toggle" ' : '', 'href="', !empty($button['sub_buttons']) ? '#' : $button['href'] . '#forum', '"', isset($button['target']) ? ' target="' . $button['target'] . '"' : '', '', !empty($button['sub_buttons']) ? ' data-toggle="dropdown"' : '', '>
 						', $button['title'], '
-						', $button['sub_buttons'] ? '<span class="caret"></span>' : '' ,'
+						', !empty($button['sub_buttons']) ? '<span class="caret"></span>' : '' ,'
 					</a>';
 		if (!empty($button['sub_buttons']))
 		{

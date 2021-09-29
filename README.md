@@ -2,7 +2,7 @@
     <img src="https://smftricks.com/logos/logo.png">
  </p>
   <p align="center">
-    <img src="https://custom.simplemachines.org/themes/index.php?action=download;lemma=2835;id=17633;image">
+    <img src="https://custom.simplemachines.org/index.php?action=download;theme=2835;attach=243345;image">
  </p>
  
  ## Greeny

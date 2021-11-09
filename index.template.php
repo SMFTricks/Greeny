@@ -87,7 +87,7 @@ function template_html_above()
 	// The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
 	echo '
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/bootstrap.min.css?fin20" />
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/font-awesome.css?fin20" />
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index.css" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/theme.css" />';
 
@@ -104,7 +104,7 @@ function template_html_above()
 
 	// Theme JS files.
 	echo '
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/bootstrap.min.js?fin20"></script>
 	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/scrolling-nav.js"></script>
 	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/jquery.easing.min.js"></script>';
@@ -138,7 +138,7 @@ function template_html_above()
 		}
 	}
 	</style>
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 	<meta name="description" content="', $context['page_title_html_safe'], '" />', !empty($context['meta_keywords']) ? '
